@@ -36,8 +36,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th colspan="2">Actions</th>
-
+                                    <th class="text-center" colspan="3">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -45,8 +44,21 @@
                                     <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->title}}</td>
-                                        <td><a href="{{route('admin.category.show', $category->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td><a class="text-success" href="{{route('admin.category.edit', $category->id)}}"><i class="fas fa-pen"></i></a></td>
+                                        <td class="text-center"><a href="{{route('admin.category.show', $category->id)}}"><i
+                                                    class="far fa-eye"></i></a></td>
+                                        <td class="text-center"><a class="text-success"
+                                               href="{{route('admin.category.edit', $category->id)}}"><i
+                                                    class="fas fa-pen"></i></a></td>
+                                        <td class="text-center">
+                                            <form action="{{route('admin.category.delete', $category->id)}}"
+                                                  method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button onclick="return confirm('are you sure?')" class="border-0 bg-transparent" type="submit">
+                                                    <i class="fas fa-trash-alt text-danger" role="button"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

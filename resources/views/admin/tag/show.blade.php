@@ -6,8 +6,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6 d-flex align-items-center">
-                    <h1 class="m-0 mr-4">{{$category->title}}</h1>
-                    <a class="text-success" href="{{route('admin.category.edit', $category->id)}}"><i class="fas fa-pen"></i></a>
+                    <h1 class="m-0 mr-4">{{$tag->title}}</h1>
+                    <a class="text-success" href="{{route('admin.tag.edit', $tag->id)}}"><i class="fas fa-pen"></i></a>
+                    <form class="" action="{{route('admin.tag.delete', $tag->id)}}"
+                          method="POST">
+                        @csrf
+                        @method('delete')
+                        <button onclick="return confirm('are you sure?')" class="border-0 bg-transparent" type="submit">
+                            <i class="fas fa-trash-alt text-danger" role="button"></i>
+                        </button>
+                    </form>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,11 +41,11 @@
                                 <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td>{{$category->id}}</td>
+                                    <td>{{$tag->id}}</td>
                                 </tr>
                                 <tr>
                                     <td>Name</td>
-                                    <td>{{$category->title}}</td>
+                                    <td>{{$tag->title}}</td>
                                 </tr>
 
                                 </tbody>
