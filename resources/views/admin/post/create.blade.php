@@ -45,7 +45,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text">Upload</span>
                                     @error('preview_image')
-                                   <div class="alert text-danger"> {{$message}}</div>
+                                    <div class="alert text-danger"> {{$message}}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -62,6 +62,31 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group w-25">
+                            <label>Category</label>
+                            <select name="category_id" class="form-control">
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}"
+                                        {{$category->id == old('category_id') ? 'selected' : ''}}
+                                    >{{$category->title}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                            <div class="alert text-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-25">
+                            <label>Tags</label>
+                            <select name="tag_ids[]" class="select2 select2-hidden-accessible" multiple=""
+                                    data-placeholder="Select a State" style="width: 100%;" data-select2-id="7"
+                                    tabindex="-1" aria-hidden="true">
+                                @foreach($tags as $tag)
+                                    <option value="{{$tag->id}}">{{$tag->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary mb-3" value="Create">
                         </div>
