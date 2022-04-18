@@ -10,8 +10,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Main</a></li>
+                        <li class="breadcrumb-item active">Categories</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">

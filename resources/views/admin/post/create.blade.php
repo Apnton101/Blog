@@ -82,7 +82,7 @@
                                     data-placeholder="Select a State" style="width: 100%;" data-select2-id="7"
                                     tabindex="-1" aria-hidden="true">
                                 @foreach($tags as $tag)
-                                    <option value="{{$tag->id}}">{{$tag->title}}</option>
+                                    <option {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected': ''}} value="{{$tag->id}}">{{$tag->title}}</option>
                                 @endforeach
                             </select>
                         </div>
