@@ -32,12 +32,13 @@
                                         @foreach($comments as $comment)
                                             <tr>
                                                 <td>{{$comment->id}}</td>
-                                                <td>{{$comment->massage}}</td>
-                                                <td class="text-center"><a
-                                                        href="{{route('admin.post.show', $comment->id)}}"><i
-                                                            class="far fa-eye"></i></a></td>
+                                                <td>{{$comment->message}}</td>
                                                 <td class="text-center">
-                                                    <form action="{{route('personal.liked.delete', $comment->id)}}"
+                                                <td class="text-center"><a class="text-success"
+                                                                           href="{{route('personal.comment.edit', $comment->id)}}"><i
+                                                            class="fas fa-pen"></i></a></td>
+                                                <td class="text-center">
+                                                    <form action="{{route('personal.comment.delete', $comment->id)}}"
                                                           method="POST">
                                                         @csrf
                                                         @method('delete')
