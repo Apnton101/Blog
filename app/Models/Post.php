@@ -12,7 +12,12 @@ class Post extends Model
     use SoftDeletes;
 
     protected $table = 'posts';
-    protected $guarded = false;
+   // protected $guarded = false;
+    protected $fillable = [
+      'title', 'content', 'category_id', 'preview_image', 'main_image'
+    ];
+
+    protected $withCount = ['likedUsers'];
 
     public function tags()
     {

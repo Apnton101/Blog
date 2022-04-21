@@ -21,4 +21,6 @@ class Comment extends Model
     {
         return Carbon::parse($this->created_at);
     }
+
+
 }
